@@ -1,0 +1,15 @@
+/* Chat Component Styles - To be implemented in Task 6 */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.messages-container {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.input-area {
+  padding: 1rem;
+}
