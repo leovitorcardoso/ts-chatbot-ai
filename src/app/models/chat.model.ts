@@ -91,10 +91,12 @@ export function isChatRequest(obj: any): obj is ChatRequest {
  * 
  * Represents the response received from the backend API.
  * 
- * @property response - AI's response text
+ * @property message - AI's response text
+ * @property session_id - Session identifier returned from backend
  */
 export interface ChatResponse {
-  response: string;
+  message: string;
+  session_id: string;
 }
 
 /**
@@ -107,6 +109,7 @@ export function isChatResponse(obj: any): obj is ChatResponse {
   return (
     obj !== null &&
     typeof obj === 'object' &&
-    typeof obj.response === 'string'
+    typeof obj.message === 'string' &&
+    typeof obj.session_id === 'string'
   );
 }

@@ -132,7 +132,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
         const aiMessage: Message = {
           id: crypto.randomUUID(),
           senderId: 'ai',
-          content: response.response,
+          content: response.message,
           timestamp: new Date(),
           time: this.formatTime(new Date())
         };
