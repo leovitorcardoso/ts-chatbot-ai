@@ -1,5 +1,5 @@
 <!-- Chat Component Template -->
-<div class="flex flex-col h-screen bg-surface-0 dark:bg-surface-900">
+<div class="flex flex-col h-full bg-surface-0 dark:bg-surface-900">
   <!-- Messages Display Area -->
   <div 
     #messagesContainer
@@ -71,7 +71,6 @@
     <div class="flex gap-2 items-center max-w-6xl mx-auto">
       <!-- Text Input Field -->
       <textarea
-        pInputText
         [(ngModel)]="messageText"
         (keydown.enter)="onEnterKey($event)"
         [disabled]="isSending"
