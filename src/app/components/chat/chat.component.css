@@ -1,4 +1,11 @@
 /* Chat Component Styles */
+
+/* Ensure proper spacing and layout */
+:host {
+  display: block;
+  height: 100%;
+}
+
 .chat-container {
   display: flex;
   flex-direction: column;
@@ -30,6 +37,13 @@
   animation: fadeIn 0.3s ease-out;
 }
 
+/* Message bubble improvements */
+.message-bubble {
+  max-width: 80%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
 /* Smooth scrollbar */
 .overflow-y-auto::-webkit-scrollbar {
   width: 8px;
@@ -49,10 +63,26 @@
 }
 
 /* Dark mode scrollbar */
-.dark .overflow-y-auto::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
+@media (prefers-color-scheme: dark) {
+  .overflow-y-auto::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
 }
 
-.dark .overflow-y-auto::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+/* Textarea auto-resize support */
+textarea {
+  min-height: 2.75rem;
+  max-height: 10rem;
+  resize: vertical;
+  line-height: 1.5;
 }
+
+/* Button alignment in input area */
+.input-area .p-button {
+  align-self: flex-end;
+}
+

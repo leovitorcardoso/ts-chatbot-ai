@@ -1,0 +1,114 @@
+/* Data Panel Component Styles */
+
+/* Ensure proper layout and spacing */
+:host {
+  display: block;
+  height: 100%;
+}
+
+/* Deep selectors for PrimeNG components */
+:host ::ng-deep {
+  /* Card styling improvements */
+  .p-card {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.5rem;
+  }
+  
+  .p-card .p-card-body {
+    padding: 1.25rem;
+  }
+  
+  .p-card .p-card-content {
+    padding: 0;
+  }
+  
+  /* Table header improvements */
+  .p-datatable .p-datatable-thead > tr > th {
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 1rem;
+  }
+  
+  .p-datatable .p-datatable-tbody > tr > td {
+    padding: 1rem;
+  }
+  
+  /* Ensure buttons are visible and properly sized */
+  .p-button {
+    font-weight: 500;
+    padding: 0.75rem 1.25rem;
+  }
+  
+  .p-button.p-button-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .p-button.p-button-icon-only {
+    padding: 0.75rem;
+  }
+  
+  /* Tag improvements */
+  .p-tag {
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+  }
+  
+  /* Paginator improvements */
+  .p-paginator {
+    padding: 0.75rem 1rem;
+  }
+  
+  .p-paginator .p-paginator-pages .p-paginator-page {
+    min-width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  /* Skeleton improvements */
+  .p-skeleton {
+    border-radius: 0.25rem;
+  }
+}
+
+/* Smooth transitions */
+.p-card,
+.p-button,
+.p-datatable .p-datatable-tbody > tr {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Statistics cards grid improvements */
+.grid > .p-card {
+  height: 100%;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode scrollbar */
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+

@@ -1,4 +1,4 @@
-/* Import PrimeNG Theme - Aura for modern look with dark mode support */
+/* Import PrimeNG Theme - Aura with dark mode support */
 @import 'primeng/resources/themes/aura-light-blue/theme.css';
 @import 'primeng/resources/primeng.min.css';
 @import 'primeicons/primeicons.css';
@@ -8,6 +8,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* PrimeNG CSS Variables - Light Mode */
+:root {
+  /* Ensure PrimeNG components have proper spacing */
+  --p-content-padding: 1.25rem;
+  --p-inline-spacing: 0.5rem;
+  
+  /* Override some PrimeNG defaults for better consistency */
+  font-size: 14px;
+}
+
 /* Global styles */
 * {
   margin: 0;
@@ -15,18 +25,474 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
+  color: #0f172a;
 }
 
-/* Dark mode support */
+/* PrimeNG Component Overrides for Better Spacing and Visibility */
+
+/* Card improvements */
+.p-card {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.p-card .p-card-body {
+  padding: 1.25rem;
+}
+
+.p-card .p-card-content {
+  padding: 0;
+}
+
+/* Table improvements */
+.p-datatable .p-datatable-thead > tr > th {
+  padding: 1rem;
+  font-weight: 600;
+  background-color: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+  padding: 1rem;
+}
+
+.p-datatable .p-datatable-tbody > tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Button improvements */
+.p-button {
+  padding: 0.75rem 1.25rem;
+  font-weight: 500;
+  gap: 0.5rem;
+}
+
+.p-button.p-button-icon-only {
+  padding: 0.75rem;
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.p-button.p-button-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+/* Input improvements */
+.p-inputtext {
+  padding: 0.75rem;
+}
+
+textarea.p-inputtext {
+  padding: 0.75rem;
+}
+
+/* Paginator improvements */
+.p-paginator {
+  padding: 0.75rem 1rem;
+  background-color: #ffffff;
+  border-top: 1px solid #e2e8f0;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page {
+  min-width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 0.125rem;
+}
+
+/* Tag improvements */
+.p-tag {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Toast improvements */
+.p-toast {
+  opacity: 1;
+}
+
+.p-toast .p-toast-message {
+  margin: 0 0 1rem 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.p-toast .p-toast-message .p-toast-message-content {
+  padding: 1rem;
+  border-width: 0 0 0 6px;
+}
+
+/* Skeleton improvements */
+.p-skeleton {
+  background-color: #e2e8f0;
+}
+
+/* Utility classes for PrimeNG icons */
+.pi {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Ensure proper icon sizing in different contexts */
+.p-button .pi {
+  font-size: 1rem;
+}
+
+.p-button.p-button-sm .pi {
+  font-size: 0.875rem;
+}
+
+.p-button.p-button-lg .pi {
+  font-size: 1.25rem;
+}
+
+/* Icon-only button improvements */
+.p-button.p-button-icon-only {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure proper spacing in buttons with icons and labels */
+.p-button .p-button-icon-left {
+  margin-right: 0.5rem;
+}
+
+.p-button .p-button-icon-right {
+  margin-left: 0.5rem;
+}
+
+
+
+/* Dark mode support - Override PrimeNG theme for dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
   }
+  
+  body {
+    background-color: #0f172a;
+    color: #f8fafc;
+  }
+  
+  /* PrimeNG component overrides for dark mode */
+  .p-card {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+    color: #f8fafc !important;
+  }
+  
+  .p-card .p-card-body {
+    color: #f8fafc !important;
+    padding: 1.25rem;
+  }
+  
+  .p-card .p-card-title {
+    color: #f8fafc !important;
+  }
+  
+  .p-card .p-card-subtitle {
+    color: #cbd5e1 !important;
+  }
+  
+  .p-datatable {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+  }
+  
+  .p-datatable .p-datatable-header {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #334155 !important;
+  }
+  
+  .p-datatable .p-datatable-thead > tr > th {
+    background: #334155 !important;
+    color: #f8fafc !important;
+    border-color: #475569 !important;
+    padding: 1rem;
+    font-weight: 600;
+  }
+  
+  .p-datatable .p-datatable-tbody > tr {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+  }
+  
+  .p-datatable .p-datatable-tbody > tr > td {
+    border-color: #334155 !important;
+    padding: 1rem;
+  }
+  
+  .p-datatable .p-datatable-tbody > tr:hover {
+    background: #334155 !important;
+  }
+  
+  .p-datatable .p-datatable-tbody > tr.p-highlight {
+    background: #334155 !important;
+    color: #f8fafc !important;
+  }
+  
+  .p-datatable .p-datatable-footer {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #334155 !important;
+  }
+  
+  .p-paginator {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #334155 !important;
+    padding: 0.75rem 1rem;
+  }
+  
+  .p-paginator .p-paginator-first,
+  .p-paginator .p-paginator-prev,
+  .p-paginator .p-paginator-next,
+  .p-paginator .p-paginator-last {
+    color: #f8fafc !important;
+  }
+  
+  .p-paginator .p-paginator-pages .p-paginator-page {
+    color: #f8fafc !important;
+    min-width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+    background: #0ea5e9 !important;
+    color: white !important;
+    border-color: #0ea5e9 !important;
+  }
+  
+  .p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {
+    background: #334155 !important;
+    color: #f8fafc !important;
+  }
+  
+  .p-paginator .p-dropdown {
+    background: #334155 !important;
+    border-color: #475569 !important;
+    color: #f8fafc !important;
+  }
+  
+  .p-paginator .p-paginator-current {
+    color: #cbd5e1 !important;
+  }
+  
+  .p-button {
+    background: #0ea5e9 !important;
+    border-color: #0ea5e9 !important;
+    color: white !important;
+    padding: 0.75rem 1.25rem;
+  }
+  
+  .p-button:enabled:hover {
+    background: #0284c7 !important;
+    border-color: #0284c7 !important;
+  }
+  
+  .p-button:enabled:active {
+    background: #0369a1 !important;
+    border-color: #0369a1 !important;
+  }
+  
+  .p-button.p-button-secondary {
+    background: #475569 !important;
+    border-color: #475569 !important;
+  }
+  
+  .p-button.p-button-secondary:enabled:hover {
+    background: #334155 !important;
+    border-color: #334155 !important;
+  }
+  
+  .p-button.p-button-text {
+    background: transparent !important;
+    border-color: transparent !important;
+    color: #0ea5e9 !important;
+  }
+  
+  .p-button.p-button-text:enabled:hover {
+    background: rgba(14, 165, 233, 0.1) !important;
+  }
+  
+  .p-button:disabled {
+    background: #334155 !important;
+    border-color: #334155 !important;
+    color: #64748b !important;
+  }
+  
+  .p-inputtext {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #475569 !important;
+    padding: 0.75rem;
+  }
+  
+  .p-inputtext:enabled:hover {
+    border-color: #64748b !important;
+  }
+  
+  .p-inputtext:enabled:focus {
+    border-color: #0ea5e9 !important;
+    box-shadow: 0 0 0 0.2rem rgba(14, 165, 233, 0.2) !important;
+  }
+  
+  .p-inputtext::placeholder {
+    color: #64748b !important;
+  }
+  
+  textarea {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #475569 !important;
+    padding: 0.75rem;
+  }
+  
+  textarea:enabled:hover {
+    border-color: #64748b !important;
+  }
+  
+  textarea:enabled:focus {
+    border-color: #0ea5e9 !important;
+    box-shadow: 0 0 0 0.2rem rgba(14, 165, 233, 0.2) !important;
+  }
+  
+  textarea::placeholder {
+    color: #64748b !important;
+  }
+  
+  .p-toast .p-toast-message {
+    background: #1e293b !important;
+    border: solid #334155 !important;
+    border-width: 0 0 0 6px !important;
+    color: #f8fafc !important;
+  }
+  
+  .p-toast .p-toast-message .p-toast-message-content {
+    padding: 1rem;
+  }
+  
+  .p-toast .p-toast-message .p-toast-message-content .p-toast-message-text {
+    color: #f8fafc !important;
+  }
+  
+  .p-toast .p-toast-message .p-toast-message-content .p-toast-summary {
+    color: #f8fafc !important;
+  }
+  
+  .p-toast .p-toast-message .p-toast-message-content .p-toast-detail {
+    color: #cbd5e1 !important;
+  }
+  
+  .p-toast .p-toast-message.p-toast-message-error {
+    border-color: #ef4444 !important;
+  }
+  
+  .p-toast .p-toast-message.p-toast-message-success {
+    border-color: #10b981 !important;
+  }
+  
+  .p-toast .p-toast-message.p-toast-message-warn {
+    border-color: #f59e0b !important;
+  }
+  
+  .p-toast .p-toast-message.p-toast-message-info {
+    border-color: #0ea5e9 !important;
+  }
+  
+  .p-skeleton {
+    background-color: #334155 !important;
+  }
+  
+  .p-skeleton:after {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0)) !important;
+  }
+  
+  /* Dropdown overrides */
+  .p-dropdown {
+    background: #1e293b !important;
+    border-color: #475569 !important;
+    color: #f8fafc !important;
+  }
+  
+  .p-dropdown:not(.p-disabled):hover {
+    border-color: #64748b !important;
+  }
+  
+  .p-dropdown-panel {
+    background: #1e293b !important;
+    border-color: #475569 !important;
+  }
+  
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+    color: #f8fafc !important;
+  }
+  
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
+    background: #334155 !important;
+  }
+  
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+    background: #0ea5e9 !important;
+    color: white !important;
+  }
 }
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .p-datatable .p-datatable-thead > tr > th,
+  .p-datatable .p-datatable-tbody > tr > td {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  .p-button {
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .p-card .p-card-body {
+    padding: 1rem;
+  }
+}
+
+/* Ensure proper focus states */
+.p-button:focus,
+.p-inputtext:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(14, 165, 233, 0.2);
+}
+
+/* Loading state improvements */
+.p-component-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  .p-component-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* Ensure text is selectable */
+.p-datatable .p-datatable-tbody > tr > td,
+.p-card .p-card-content {
+  user-select: text;
+}
+
 
 /* Custom scrollbar styling for chat messages */
 .messages-container::-webkit-scrollbar {

@@ -3,7 +3,7 @@ module.exports = {
   content: [
     "./src/**/*.{html,ts}",
   ],
-  darkMode: 'class',
+  darkMode: 'media', // Use system preference
   theme: {
     extend: {
       colors: {
